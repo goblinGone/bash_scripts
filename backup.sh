@@ -7,8 +7,8 @@ read working_dir
 echo "please list the files to be backed-up"
 read todo_list
 for i in $todo_list
-  do
-  tar -cgv ../pi/backups/$i$(date -I).tar.gz ~/$working_dir/$i
+do
+tar -cgv -f ../pi/backups/$i$(date -I).tar.gz ~/$working_dir/$i
   echo "ok, file $i has been added"
-  done
+done
 echo "Back up complete, have a nice day"
