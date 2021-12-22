@@ -1,4 +1,4 @@
-#!/bin/#!/usr/bin/env bash
+#!/bin/bash
 today=$(date)
 mkdir home/pi/backups
 echo "we will back up some stuff now"
