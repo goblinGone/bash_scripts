@@ -1,4 +1,5 @@
 #!/bin/bash
+
 if [[ "$#" -eq 0 || "$1" == "--help" ]]
 then
     echo "Usage: $0 DELAY"
