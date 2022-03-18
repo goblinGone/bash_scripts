@@ -1,8 +1,32 @@
 #!/bin/bash
 
-echo "***************************************"
-echo "** Jamsbot's Password Generator"
-echo "***************************************"
+############################################################
+#                                                          #
+# Password Generator                                       #
+# With options                                             #
+#                                                          #
+############################################################
+
+############################################################
+# Help                                                     #
+############################################################
+Help()
+{
+   # Display Help
+   echo "Add description of the script functions here."
+   echo
+   echo "Syntax: scriptTemplate [-g|h|v|V]"
+   echo "options:"
+   echo "g     Print the GPL license notification."
+   echo "h     Print this Help."
+   echo "v     Verbose mode."
+   echo "V     Print software version and exit."
+   echo
+}
+
+############################################################
+# Main program                                             #
+############################################################
 
 if [[ "$#" -eq 0 || "$1" == "--help" ]]
 then
