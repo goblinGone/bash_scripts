@@ -1,5 +1,12 @@
 #!/bin/bash
 
+############################################################
+#                                                          #
+# C++ compiler from CLI                                    #
+# With options                                             #
+#                                                          #
+############################################################
+
 today=$(date)
 
 echo "we will now compile a C++ file, Please select the file or files to be compiled"
