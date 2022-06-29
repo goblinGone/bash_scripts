@@ -11,12 +11,12 @@ Help() {
    # Display Help
    echo "Password Generator."
    echo
-   echo "Syntax: scriptTemplate [-g|h|v|V]"
+   echo "Syntax: scriptTemplate [-g|h|i|v]"
    echo "options:"
-   echo "g     Print the MIT license notification."
-   echo "h     Print this Help."
-   echo "i     Choose a password length, with the defualt being 12"
-   echo "V     Print software version and exit."
+   echo " -g     Print the MIT license notification."
+   echo " -h     Print this Help."
+   echo " -i     Choose a password length, with the defualt being 12"
+   echo " -v     Print software version and exit."
    echo
 }
 
@@ -50,14 +50,14 @@ Version() {
    echo "############################################################"
    echo "#      Password Generator                                  #"
    echo "#      With options                                        #"
-   echo "#      V_passgen_0.1.2                                     #"
+   echo "#      passgen_0.1.3                                       #"
    echo "############################################################"
    echo
 }
 
-declare -i intNum=20
+intNum=12
 # Get the options
-while getopts ":ghiV" option; do
+while getopts ":ghiv" option; do
    case $option in
       g) # display Help
          License
@@ -66,8 +66,8 @@ while getopts ":ghiV" option; do
          Help
          exit;;
       i) # Enter a number
-         intNum=$OPTARG;;
-      V) # display Help
+         intNum = :"$OPTARG";;
+      v) # display Help
          Version
          exit;;
      \?) # Invalid option
@@ -75,7 +75,7 @@ while getopts ":ghiV" option; do
    esac
 done
 
-chars=qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM1234567890!£$%^
+chars=qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM1234567890!£$%^.*
 
 for i in $(seq 1 $intNum) ; do
     echo -n "${chars:RANDOM%${#chars}:1}"
