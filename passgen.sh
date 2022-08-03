@@ -11,12 +11,16 @@ Help() {
    # Display Help
    echo "Password Generator."
    echo
-   echo "Syntax: scriptTemplate [-g|h|i|v]"
+   echo "Syntax: passgen {args} [-g|h|i|v]"
+   echo " "
    echo "options:"
+   echo " -c     Use no special characters or numbers"
    echo " -g     Print the MIT license notification."
    echo " -h     Print this Help."
-   echo " -i     Choose a password length, with the defualt being 12"
+   echo " -l     Choose a password length, with the defualt being 12"
+   echo " -n     Use no special characters BUT use numbers"
    echo " -v     Print software version and exit."
+   echo " -V     Verbose mode"
    echo
 }
 
@@ -50,35 +54,57 @@ Version() {
    echo "############################################################"
    echo "#      Password Generator                                  #"
    echo "#      With options                                        #"
-   echo "#      passgen_0.1.3                                       #"
+   echo "#      passgen_0.1.4                                       #"
    echo "############################################################"
    echo
 }
 
-intNum=12
-# Get the options
-while getopts ":ghiv" option; do
-   case $option in
-      g) # display Help
-         License
-         exit;;
-      h) # display Help
-         Help
-         exit;;
-      i) # Enter a number
-         intNum = :"$OPTARG";;
-      v) # display Help
-         Version
-         exit;;
-     \?) # Invalid option
-         echo "Error: Invalid option type -h for help"
+console_spam() {
+   local MESSAGE="${@}"
+   if [[ "${VERBOSE}" == true ]];then
+      echo "${MESSAGE}"
+   fi
+}
+
+#exit if incorrectly used
+if [[ "$#" -eq 0 ]]
+then 
+   echo "   usage: ./$(basename $0) {args}"
+   echo "          use ./$(basename $0) -h for help"
+   exit 1
+fi 
+
+
+LENGTH=12
+
+optstring=":cghlnvV"
+
+while getopts ${optstring} arg; do
+   case "${arg}" in
+      c) SPEC_CHAR='true' ;;
+      g) License ;;
+      h) Help ;;
+      l) LENGTH="${OPTARG}" ;;
+      n) Nums='true' ;;
+      v) Version ;;
+      V) VERBOSE='true' 
+      console_spam "Verbose mode activated"
+      ;;
+     \?) echo "Error: Invalid option: -${OPTARG}"
+         echo "type -h for help" ;;
    esac
 done
 
-chars=qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM1234567890!£$%^.*
+CHARS=qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM1234567890
 
-for i in $(seq 1 $intNum) ; do
-    echo -n "${chars:RANDOM%${#chars}:1}"
+console_spam "working"
+
+for (( j=1; j<=$LENGTH; j++))
+do
+echo -n "${CHARS:RANDOM%${#CHARS}:1}"
 done
-
 echo
+
+console_spam "end"
+
+
