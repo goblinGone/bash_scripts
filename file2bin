@@ -1,0 +1,15 @@
+#!/bin/bash
+
+
+
+now=`date +"%Y-%m-%d"`
+echo "name of file?"
+#ask for file name
+read name
+chmod +x $name
+touch /home/jammers/APP_REG/file2bin.md
+#copy to bin
+sudo cp $name /bin
+#run chmod
+#appedn the file with app name and date
+ echo "$name added ${now}" >>/home/jammers/APP_REG/file2bin.md
