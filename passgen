@@ -27,7 +27,7 @@ Help() {
 License() {
    echo "MIT License"
    echo
-   echo "Copyright (c) [year] [fullname]"
+   echo "Copyright (c) 2022 Jammers"
    echo
    echo "Permission is hereby granted, free of charge, to any person obtaining a copy"
    echo "of this software and associated documentation files (the "Software"), to deal"
@@ -59,7 +59,7 @@ Version() {
    echo
 }
 
-console_spam() {
+function console_spam {
    local MESSAGE="${@}"
    if [[ "${VERBOSE}" == true ]];then
       echo "${MESSAGE}"
@@ -75,36 +75,44 @@ then
 fi 
 
 
-LENGTH=12
 
-optstring=":cghlnvV"
+LENGTH=12
+optstring=":cghlnvV:"
 
 while getopts ${optstring} arg; do
-   case "${arg}" in
-      c) SPEC_CHAR='true' ;;
-      g) License ;;
-      h) Help ;;
-      l) LENGTH="${OPTARG}" ;;
-      n) Nums='true' ;;
-      v) Version ;;
-      V) VERBOSE='true' 
+  case ${arg} in
+    c) 
+      SPEC_CHAR='true' ;;
+    g)
+      License ;;
+    h) 
+      Help ;;
+    l)
+      LENGTH="${OPTARG}"
+      ;;
+    n) 
+      Nums='true' ;;
+    v) 
+      Version ;;
+    V) 
+      VERBOSE='true' 
       console_spam "Verbose mode activated"
       ;;
-     \?) echo "Error: Invalid option: -${OPTARG}"
+    \?) echo "Error: Invalid option: -${OPTARG}"
          echo "type -h for help" ;;
-   esac
+  esac
 done
 
+
 CHARS=qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM1234567890
+console_spam='working'
 
-console_spam "working"
-
-for (( j=1; j<=$LENGTH; j++))
+for (( i=1; i<=$LENGTH; i++))
 do
 echo -n "${CHARS:RANDOM%${#CHARS}:1}"
 done
 echo
 
-console_spam "end"
+console_spam 'end'
 
 
