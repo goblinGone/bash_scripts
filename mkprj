@@ -2,7 +2,7 @@
 #ask for name and description work out the date
 echo "Enter a Unique project name"
 read prjnm
-echo "Enter a short porject description"
+echo "Enter a short project description"
 read prjdesc
 now=`date +"%Y-%m-%d"`
 
@@ -43,13 +43,11 @@ isProject: true
 isChunk: false
 isTask: false
 status: planning
-priority: 4
-status:">> /home/jammers/Zettel/GoblinKnows/FOREST/01-Green_House/test.md
-echo "date: $now">> /home/jammers/Zettel/GoblinKnows/FOREST/01-Green_House/test.md
-echo "---">> /home/jammers/Zettel/GoblinKnows/FOREST/01-Green_House/test.md
-echo "# $prjnm">> /home/jammers/Zettel/GoblinKnows/FOREST/01-Green_House/test.md
-echo "#### Project Read me">> /home/jammers/Zettel/GoblinKnows/FOREST/01-Green_House/test.md
-echo $prjdesc>> /home/jammers/Zettel/GoblinKnows/FOREST/01-Green_House/test.md
+priority: 4">> /home/jammers/Zettel/GoblinKnows/FOREST/01-Green_House/$prjnm.md
+echo "date: $now">> /home/jammers/Zettel/GoblinKnows/FOREST/01-Green_House/$prjnm.md
+echo "---">> /home/jammers/Zettel/GoblinKnows/FOREST/01-Green_House/$prjnm.md
+echo "# $prjnm">> /home/jammers/Zettel/GoblinKnows/FOREST/01-Green_House/$prjnm.md
+echo $prjdesc>> /home/jammers/Zettel/GoblinKnows/FOREST/01-Green_House/$prjnm.md
 echo "
 #### Brief
 
@@ -58,12 +56,12 @@ echo "
 #### Write up
  
 ###### Licencing
-This project is licenced under the [GNU GENERAL PUBLIC LICENCE](https://www.gnu.org/licenses/gpl-3.0.en.html)
+This project is licensed under the [GNU GENERAL PUBLIC LICENCE](https://www.gnu.org/licenses/gpl-3.0.en.html)
 
 ---
 **Related:**
-**Tags:**">> /home/jammers/Zettel/GoblinKnows/FOREST/01-Green_House/test.md
-echo "**Resources:** [$prjnm folder](file:///home/jammers/Project_archive/$prjnm)">>/home/jammers/Zettel/GoblinKnows/FOREST/01-Green_House/test.md
+**Tags:**">> /home/jammers/Zettel/GoblinKnows/FOREST/01-Green_House/$prjnm.md
+echo "**Resources:** [$prjnm folder](file:///home/jammers/Project_archive/$prjnm)">>/home/jammers/Zettel/GoblinKnows/FOREST/01-Green_House/$prjnm.md
 
 
 
