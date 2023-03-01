@@ -36,9 +36,14 @@ echo $prjdesc >> /home/jammers/Project_archive/$prjnm/readme.md
 echo "---
 alias:
 hasAnki: false
-reviewed: false
+isLinked: LOW
+projectType:
 isMoc: false
 isProject: true
+isChunk: false
+isTask: false
+status: planning
+priority: 4
 status:">> /home/jammers/Zettel/GoblinKnows/FOREST/01-Green_House/test.md
 echo "date: $now">> /home/jammers/Zettel/GoblinKnows/FOREST/01-Green_House/test.md
 echo "---">> /home/jammers/Zettel/GoblinKnows/FOREST/01-Green_House/test.md
@@ -57,7 +62,7 @@ This project is licenced under the [GNU GENERAL PUBLIC LICENCE](https://www.gnu.
 
 ---
 **Related:**
-**Tags:** #Project ">> /home/jammers/Zettel/GoblinKnows/FOREST/01-Green_House/test.md
+**Tags:**">> /home/jammers/Zettel/GoblinKnows/FOREST/01-Green_House/test.md
 echo "**Resources:** [$prjnm folder](file:///home/jammers/Project_archive/$prjnm)">>/home/jammers/Zettel/GoblinKnows/FOREST/01-Green_House/test.md
 
 
