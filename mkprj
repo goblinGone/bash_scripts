@@ -32,8 +32,14 @@ echo "project created ${now}" >> /home/jammers/Project_archive/$prjnm/changelog.
 echo "***********************************" >> /home/jammers/Project_archive/$prjnm/readme.md
 echo $prjdesc >> /home/jammers/Project_archive/$prjnm/readme.md
 
-echo "---" >> /home/jammers/Zettel/GoblinKnows/FOREST/01-Green_House/test.md
-echo "aliases:">> /home/jammers/Zettel/GoblinKnows/FOREST/01-Green_House/test.md
+
+echo "---
+alias:
+hasAnki: false
+reviewed: false
+isMoc: false
+isProject: true
+status:">> /home/jammers/Zettel/GoblinKnows/FOREST/01-Green_House/test.md
 echo "date: $now">> /home/jammers/Zettel/GoblinKnows/FOREST/01-Green_House/test.md
 echo "---">> /home/jammers/Zettel/GoblinKnows/FOREST/01-Green_House/test.md
 echo "# $prjnm">> /home/jammers/Zettel/GoblinKnows/FOREST/01-Green_House/test.md
