@@ -35,33 +35,66 @@ echo $prjdesc >> /home/jammers/Project_archive/$prjnm/readme.md
 
 echo "---
 alias:
-hasAnki: false
+author:
+hasAnki: 
+ISBN:
 isLinked: LOW
-projectType:
-isMoc: false
+isList: 
+isMan: 
+isMoc: 
 isProject: true
-isChunk: false
-isTask: false
+priority: 4
+projectMain: $prjnm
+projectType: 
+reviewed: 1
 status: planning
-priority: 4">> /home/jammers/Zettel/GoblinKnows/FOREST/01-Green_House/$prjnm.md
-echo "date: $now">> /home/jammers/Zettel/GoblinKnows/FOREST/01-Green_House/$prjnm.md
-echo "---">> /home/jammers/Zettel/GoblinKnows/FOREST/01-Green_House/$prjnm.md
-echo "# $prjnm">> /home/jammers/Zettel/GoblinKnows/FOREST/01-Green_House/$prjnm.md
-echo $prjdesc>> /home/jammers/Zettel/GoblinKnows/FOREST/01-Green_House/$prjnm.md
-echo "
-#### Brief
-
-#### Materials
-
-#### Write up
- 
-###### Licencing
-This project is licensed under the [GNU GENERAL PUBLIC LICENCE](https://www.gnu.org/licenses/gpl-3.0.en.html)
-
+subject: 
+tags: 
+temporal:
+type: project
+date: $now
 ---
-**Related:**
-**Tags:**">> /home/jammers/Zettel/GoblinKnows/FOREST/01-Green_House/$prjnm.md
+# $prjnm">> /home/jammers/Zettel/GoblinKnows/FOREST/01-Green_House/$prjnm.md
+echo "$prjdesc">> /home/jammers/Zettel/GoblinKnows/FOREST/01-Green_House/$prjnm.md
+echo "">> /home/jammers/Zettel/GoblinKnows/FOREST/01-Green_House/$prjnm.md
+echo "#### Brief">> /home/jammers/Zettel/GoblinKnows/FOREST/01-Green_House/$prjnm.md
+echo "">> /home/jammers/Zettel/GoblinKnows/FOREST/01-Green_House/$prjnm.md
+echo "#### Materials">> /home/jammers/Zettel/GoblinKnows/FOREST/01-Green_House/$prjnm.md
+echo "">> /home/jammers/Zettel/GoblinKnows/FOREST/01-Green_House/$prjnm.md
+echo "#### Write up">> /home/jammers/Zettel/GoblinKnows/FOREST/01-Green_House/$prjnm.md
+echo " ">> /home/jammers/Zettel/GoblinKnows/FOREST/01-Green_House/$prjnm.md
+echo "#### Task Pane">> /home/jammers/Zettel/GoblinKnows/FOREST/01-Green_House/$prjnm.md
+echo "\`\`\`dataview">> /home/jammers/Zettel/GoblinKnows/FOREST/01-Green_House/$prjnm.md
+echo "task">> /home/jammers/Zettel/GoblinKnows/FOREST/01-Green_House/$prjnm.md
+echo "from \"FOREST\"">> /home/jammers/Zettel/GoblinKnows/FOREST/01-Green_House/$prjnm.md
+echo "where !completed & projectMain = \"$prjnm\" & type = \"taskList\"">> /home/jammers/Zettel/GoblinKnows/FOREST/01-Green_House/$prjnm.md
+echo "">> /home/jammers/Zettel/GoblinKnows/FOREST/01-Green_House/$prjnm.md
+echo "\`\`\`">> /home/jammers/Zettel/GoblinKnows/FOREST/01-Green_House/$prjnm.md
+echo "---">> /home/jammers/Zettel/GoblinKnows/FOREST/01-Green_House/$prjnm.md
+echo "This project is licensed under the [GNU GENERAL PUBLIC LICENCE](https://www.gnu.org/licenses/gpl-3.0.en.html)">> /home/jammers/Zettel/GoblinKnows/FOREST/01-Green_House/$prjnm.md
+echo "**Related:**">> /home/jammers/Zettel/GoblinKnows/FOREST/01-Green_House/$prjnm.md
 echo "**Resources:** [$prjnm folder](file:///home/jammers/Project_archive/$prjnm)">>/home/jammers/Zettel/GoblinKnows/FOREST/01-Green_House/$prjnm.md
 
-
-
+echo "---
+alias:
+author:
+hasAnki: 
+ISBN:
+isLinked: LOW
+isList: 
+isMan: 
+isMoc: 
+isProject: true
+priority: 4
+projectMain: $prjnm
+projectType: 
+reviewed: 1
+status: 
+subject: 
+tags: 
+temporal:
+type: taskList
+date: $now
+---
+# $prjnm-taskList
+## [[$prjnm]]" >>/home/jammers/Zettel/GoblinKnows/FOREST/01-Green_House/$prjnm-taskList.md
