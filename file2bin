@@ -1,6 +1,11 @@
+
+#
+#   script to move files safely to the binary folder
+#   required SUDO permissions
+#   after addition to ~/bin will append a log file in the APP_REG folder of the name and date the thing was #   added  
+
+
 #!/bin/bash
-
-
 
 now=`date +"%Y-%m-%d"`
 echo "name of file?"

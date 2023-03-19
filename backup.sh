@@ -1,3 +1,8 @@
+#
+#   simple backup script
+#   runs through the listed folders adding to a compressed file
+#
+
 #!/bin/bash
 echo " "
 echo "***************************************"
