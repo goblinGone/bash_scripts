@@ -1,5 +1,10 @@
 #!/bin/bash
 
+# back up script, creates a backup file mirroring current file structure
+# places all backups in respective backup file 
+# 2023/07/04
+
+txtred='\e[0;31m'
 txtblu='\e[0;34m'
 txtcyn='\e[0;36m'
 txtylw='\e[0;33m'
@@ -8,53 +13,73 @@ txtwht='\e[0;37m'
 now=`date +"%Y-%m-%d"`
 dir=$(pwd)
 result=${PWD##*/}
-mkdir ~/backup_$now
+
+mkdir -p ~/backup_$now
+
 clear
 
-echo "current bash testing thing!"
+echo -e ${txtred}"debug"${txtwht}
 
 for i in $dir/*  
 do
+
     if [ -d "$i" ] 
     then
 
         cd $i
-        echo -e ${txtblu}$(basename "$i")${txtwht}
-        temp=$(basename "$i")
-        echo $i
-        mkdir ~/backup_$now/$temp
-
-        #tar -cvf $i.tar ~/backup_$now/$i
-
-        dir2=$(pwd)
+        echo -e ${txtblu}$(basename "$i")${txtwht} #DEBUG
+        tempi=$(basename "$i")
+        mkdir -p ~/backup_$now/$tempi
         cd ..
-        for j in $dir2/* 
+
+        for j in $tempi/* 
         do
             
             if [ -d "$j" ]
             then
-             #   cd $j
-                echo -e ${txtcyn}$(basename "$j")${txtwht}
-               # tar -cvf $j.tar $j 
-             #   cd ..
 
-            elif [ -f "$j" ] 
+                cd $j
+                echo -e ${txtcyn}$(basename "$j")${txtwht} #DEBUG
+                tempj=$(basename "$j")
+                mkdir -p ~/backup_$now/$tempi/$tempj                
+                cd ..
+
+                for k in tempj/*
+                do
+                    cd $k
+                    echo $(basename "$k") #DEBUG
+                    tempk=$(basename "$k")
+                    cd ..
+
+                done
+
+
+
+
+            elif [ -a "$j" ] 
             then 
-             #   cd $j
-                echo -e ${txtylw}$(basename "$j")${txtwht} 
-            #    tar -cvf $jfiles.tar $j 
-             #   cd ..
+
+    #            cd $j
+                mkdir -p ~/backup_$now/$tempi/_file
+                tempj=$(basename "$j")
+                echo -e ${txtylw}$(basename "$j")${txtwht} #DEBUG
+                tar -cvf $tempj.tar $j
+                mv $tempj.tar ~/backup_$now/$tempi/_file/ 
+     #           cd ..
+
             fi
         done
+
     elif [ -a "$i"  ] 
     then
     
-        mkdir ~/backup_$now/_file 
-        echo -e ${txtblu}$(basename "$i")${txtwht}
-        temp=$(basename "$i")
+        mkdir -p ~/backup_$now/_file 
+        tempi=$(basename "$i")
         echo -e ${txtylw}$(basename "$i")${txtwht}
-        tar -cvf $temp.tar $i
-        mv $temp.tar ~/backup_$now/_file/ 
+        tar -cvf $tempi.tar $i
+        mv $tempi.tar ~/backup_$now/_file/ 
 
     fi
 done
+
+
